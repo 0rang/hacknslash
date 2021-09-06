@@ -27,10 +27,14 @@ public class PlayerController : MonoBehaviour
     [Tooltip("controls both player and camera rotation horizontally")]
     public float rotationSpeed;
 
-    private CharacterController controller;
+    [Header("Gizmo Draw Toggles")]
+    public bool drawAttackHitSphere;
 
+    [Header("Other")]
     [SerializeField]
     private Vector3 velocity;
+
+    private CharacterController controller;
 
     // TODO: Move Input Sytem code to a separate script with public properties for use in other objects
     [Header("Input Actions")]
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput;
     private bool jumpInput;
     private bool fireInput;
+    private bool firePressed;
     private bool fire2Input;
 
     void Start()
@@ -52,10 +57,11 @@ public class PlayerController : MonoBehaviour
         CamToFloorTeleport();
 
         // TODO: Make Attack() only get called on the frame the fireInput is pressed down
-        if (fireInput)
+        if (firePressed)
         {
             Debug.Log("Attack Called");
             Attack();
+            firePressed = false;
         }
 
         if (fire2Input)
@@ -86,7 +92,13 @@ public class PlayerController : MonoBehaviour
 
     public void GetFireInput(InputAction.CallbackContext context)
     {
+        Debug.Log("FireInput Event Called");
         fireInput = context.ReadValueAsButton();
+        firePressed = context.performed;
+        if(context.performed == true)
+        {
+            Debug.Log("performed true");
+        }
     }
 
     public void GetFire2Input(InputAction.CallbackContext context)
@@ -155,26 +167,30 @@ public class PlayerController : MonoBehaviour
         Collider[] enemiesHit = Physics.OverlapSphere(
             transform.position + transform.forward * hitSphereCentre,
             hitSphereRadius,
-            LayerMask.NameToLayer("Enemy") // does this exclude or include the enemy layer? 
+            LayerMask.GetMask("Enemy") // does this exclude or include the enemy layer? 
             );
+
         foreach (Collider col in enemiesHit)
         {
+            Debug.Log("Found a collider! name: " + col.name);
             // TODO: code flow goes into else plz fix
             EnemyDamage enemy = col.gameObject.GetComponent<EnemyDamage>();
             if (enemy != null)
             {
+                Debug.Log("Calling TakeDamage in attacked Object");
                 enemy.TakeDamage();
             }
             else
             {
-                Debug.LogError("Object with layer \"Enemy\" does not have EnemyDamage Behaviour");
+                Debug.LogError(col.name + ": object with layer \"Enemy\" does not have EnemyDamage Behaviour");
             }
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        if (fireInput)
+
+        if (drawAttackHitSphere)
         {
             Gizmos.DrawSphere(transform.position + transform.forward * hitSphereCentre, hitSphereRadius);
         }

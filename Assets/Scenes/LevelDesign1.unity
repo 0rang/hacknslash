@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTime: 1
-  hitSphereCentre: 0
-  hitSphereRadius: 0
+  hitSphereCentre: 1
+  hitSphereRadius: 1
   cameraTransform: {fileID: 1189297748}
   shadowTransform: {fileID: 1581319791}
   acceleration: 20
@@ -278,6 +278,7 @@ MonoBehaviour:
   jumpThrust: 10
   vertCamSensitivity: 10
   rotationSpeed: 10
+  drawAttackHitSphere: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &719695359
 MonoBehaviour:
