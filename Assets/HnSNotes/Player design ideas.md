@@ -1,0 +1,2 @@
+- consider limiting movement options to make the shadow teleport the best option in most scenarios
+- 

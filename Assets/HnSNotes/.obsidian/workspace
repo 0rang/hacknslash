@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "42d8eb54c0c6e22d",
+    "type": "split",
+    "children": [
+      {
+        "id": "4bbfa353f42d2e33",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Enemy design ideas.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0ce6e625f1dbdafc",
+    "type": "split",
+    "children": [
+      {
+        "id": "bb41c2df6d56d6fd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4142940b2744368b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "038cfff01e5c4c25",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ac3d4e6813ff746f",
+    "type": "split",
+    "children": [
+      {
+        "id": "148d3d0f23b5d716",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "edfccc968c8f36fe",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Enemy design ideas.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "4bbfa353f42d2e33",
+  "lastOpenFiles": [
+    "Enemy design ideas.md",
+    "Player design ideas.md",
+    "Untitled.md"
+  ]
+}
